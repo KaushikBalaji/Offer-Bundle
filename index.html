@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Bumble Days</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+            color: #ff5a5f;
+            font-size: 18px;
+        }
+        .bundle-option {
+            border: 2px solid #ff5a5f;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .bundle-option input {
+            margin-right: 10px;
+        }
+        .bundle-option label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+        }
+        .bundle-option.active .details {
+            display: block;
+        }
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: #ff5a5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .most-popular {
+            position: absolute;
+            top: -12px;
+            right: 10px;
+            background: #ff5a5f;
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .discount-badge {
+            background: #ff5a5f;
+            color: white;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+        .free-delivery {
+            color: #ff5a5f;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const options = document.querySelectorAll(".bundle-option input");
+            options.forEach(option => {
+                option.addEventListener("change", function() {
+                    document.querySelectorAll(".bundle-option").forEach(opt => opt.classList.remove("active"));
+                    this.closest(".bundle-option").classList.add("active");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Bundle & Save</h2>
+        
+        <div class="bundle-option">
+            <label>
+                <input type="radio" id="option1" name="bundle">
+                1 Unit <span class="discount-badge">10% Off</span>
+                <span>&#x20b9; <s>200</s> 180</span>
+            </label>
+            <div class="details">
+                <p>Size & Colour Selection</p>
+                <select>
+                    <option style="font-size: small;">S</option>
+                    <option style="font-size: large">M</option>
+                    <option style="font-size: x-large">L</option>
+                </select>
+                <select>
+                    <option style="background-color: rgb(21, 146, 230);">Blue</option>
+                    <option style="background-color:rgb(86, 205, 75)">Green</option>
+                    <option style="background-color:rgb(225, 88, 88)">Red</option>
+                </select>
+
+            </div>
+        </div>
+        
+        <div class="bundle-option">
+            <label>
+                <input type="radio" id="option2" name="bundle">
+                2 Units <span class="discount-badge">20% Off</span>
+                <span>&#x20b9; <s>400</s> 320</span>
+                <span class="most-popular">MOST POPULAR</span>
+            </label>
+            <div class="details">
+                <p>Size & Colour Selection</p>
+                <select>
+                    <option style="font-size: small;">S</option>
+                    <option style="font-size: large">M</option>
+                    <option style="font-size: x-large">L</option>
+                </select>
+                <select>
+                    <option style="background-color: rgb(21, 146, 230);">Blue</option>
+                    <option style="background-color:rgb(86, 205, 75)">Green</option>
+                    <option style="background-color:rgb(225, 88, 88)">Red</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="bundle-option">
+            <label>
+                <input type="radio" id="option3" name="bundle">
+                3 Units <span class="discount-badge">30% Off</span>
+                <span>&#x20b9; <s>600</s> 420</span>
+            </label>
+            <div class="details">
+                <p>Size & Colour Selection</p>
+                <select>
+                    <option style="font-size: small;">S</option>
+                    <option style="font-size: large">M</option>
+                    <option style="font-size: x-large">L</option>
+                </select>
+                <select>
+                    <option style="background-color: rgb(21, 146, 230);">Blue</option>
+                    <option style="background-color:rgb(86, 205, 75)">Green</option>
+                    <option style="background-color:rgb(225, 88, 88)">Red</option>
+                </select>
+            </div>
+        </div>
+        
+        <p class="free-delivery">Free Delivery</p>
+        <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+</body>
+</html>
